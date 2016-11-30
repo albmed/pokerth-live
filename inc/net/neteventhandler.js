@@ -22,7 +22,7 @@ function NetEventHandler()
 	{
 		self.nickName = nickName;
 		self.password = password;
-		self.websocket = new WebSocket("ws://46.38.236.60:7233/pokerthwebsocket");
+		self.websocket = new WebSocket("ws://localhost:7233/pthsocketserver");
 		//self.websocket = new WebSocket("ws://46.38.236.60:7232/pokerthwebsocket");
 		self.websocket.binaryType = 'arraybuffer';
 		self.websocket.onopen = function(evt){ self.onOpen(evt); };
@@ -568,9 +568,6 @@ function NetEventHandler()
 		{
 			case PokerTH.RemovedFromGameMessage.RemovedFromGameReason.gameIsFull :
 				myGui.signalNetClientServerMessage("This game already has the maximum number of spectators.");
-				break;
-			case PokerTH.RemovedFromGameMessage.RemovedFromGameReason.kickedFromGame :
-				myGui.signalNetClientServerMessage("You were kicked from the game.");
 				break;
 			case PokerTH.RemovedFromGameMessage.RemovedFromGameReason.kickedFromGame :
 				myGui.signalNetClientServerMessage("You were kicked from the game.");

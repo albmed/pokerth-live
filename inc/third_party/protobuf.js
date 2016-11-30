@@ -1172,7 +1172,7 @@ PROTO.bytes = {
         return myclass;
     };
     function convertU32(n) { //unsigned
-        if (n == NaN) {
+        if (isNaN(n)) {
             throw "not a number: "+n;
         }
         n = Math.round(n);
@@ -1185,7 +1185,7 @@ PROTO.bytes = {
         return n;
     };
     function convertS32(n) { // signed
-        if (n == NaN) {
+        if (isNaN(n)) {
             throw "not a number: "+n;
         }
         n = Math.round(n);
@@ -1336,7 +1336,7 @@ PROTO.bytes = {
 
     function convertFloatingPoint(f) {
         var n = parseFloat(f);
-        if (n == NaN) {
+        if (isNaN(n)) {
             throw "not a number: "+f;
         }
         return n;
