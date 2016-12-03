@@ -22,7 +22,7 @@ function NetEventHandler()
 	{
 		self.nickName = nickName;
 		self.password = password;
-		self.websocket = new WebSocket("ws://localhost:7233/pthsocketserver");
+		self.websocket = new WebSocket("ws://149.202.223.116:7236/pthsocketserver");
 		//self.websocket = new WebSocket("ws://46.38.236.60:7232/pokerthwebsocket");
 		self.websocket.binaryType = 'arraybuffer';
 		self.websocket.onopen = function(evt){ self.onOpen(evt); };
