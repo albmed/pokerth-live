@@ -601,9 +601,9 @@ function NetEventHandler()
 			case PokerTH.ChatMessage.ChatType.chatTypeLobby :
 				myGui.signalNetClientLobbyChatMsg(chat.playerId, chat.chatText);
 				break;
-			case PokerTH.ChatMessage.ChatType.chatTypeGame :
-				myGui.signalNetClientGameChatMsg(chat.gameId, chat.playerId, chat.chatText);
-				break;
+//			case PokerTH.ChatMessage.ChatType.chatTypeGame :
+//				myGui.signalNetClientGameChatMsg(chat.gameId, chat.playerId, chat.chatText);
+//				break;
 			case PokerTH.ChatMessage.ChatType.chatTypeBot :
 				myGui.signalNetClientChatBotNotice(chat.chatText);
 				break;

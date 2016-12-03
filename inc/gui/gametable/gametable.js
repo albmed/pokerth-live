@@ -31,7 +31,7 @@ function GameTableImpl()
 		$("#gameArea").append('<div id="distributePotAnimationLabel'+i+'"></div>');
 		$("#gameArea").append('<div id="table-user-loggedIn"></div>');
 		$("#gameArea").append('<div id="spectatorLabel"></div>');
-		$("#gameArea").append('<div id="table-chat-textArea"></div>');	
+//		$("#gameArea").append('<div id="table-chat-textArea"></div>');	
 		$("#avatarLabel"+i).css({ 
 			'z-index' : this.avatarLabelCssZIndex, 
 			'image-rendering' : 'optimizeQuality',
@@ -94,7 +94,6 @@ function GameTableImpl()
 		self.refreshUIButtons();
 		self.refreshSpectatorLabel();
 		self.refreshClientLabel();
-		self.refreshChat();
 	};
 	
 	this.clearAllLayers = function()
@@ -802,51 +801,53 @@ function GameTableImpl()
 				'color' : 'white'
 		} );
 	};
-	
-	this.refreshChat = function()
-	{
-		$("#table-chat-textArea").textinput();
-		$("#table-chat-textArea").css( {
-				'top' : parseInt(myHeight * 80 / 100) + 'px',
-				'left' : parseInt(myWidth * 0.3 / 100) + 'px',
-				'height' : parseInt(myHeight * 15 / 100) + 'px',
-				'width' : parseInt(myWidth * 33 / 100) + 'px',
-				'font-size' : parseInt(myHeight * 2.1 / 100)
-		} );
-		
-		if(self.chatCache.length > 0) {
-			for (var i = 0; i < self.chatCache.length; i++) {
-				var refresh = true;
-				self.finalReceiveChatMsg(self.chatCache[i], refresh);
-			}
-		}
-	
-	};
-	
-	this.receiveChatMessage = function(playerId, msgText)
-	{	
-		var playerName = myNetCache.getPlayerData(playerId).playerInfoData.playerName;
-		var tmpMsg;
-		if(msgText.match("^/me ")=="/me ") {
-			msgText = msgText.replace(/\/me /g, "<b>*"+playerName+"</b> ");
-			tmpMsg = '<span class="table-chat-textArea_text" style="font-style:italic;">'+msgText+'</span></br>';
-		}
-		else {
-			tmpMsg = '<span class="table-chat-textArea_text"><b>'+playerName+':</b> '+msgText+'</span></br>';
-		}
-		self.finalReceiveChatMsg(tmpMsg);
-	};
-	
-	this.finalReceiveChatMsg = function(msgText, refresh) 
-	{
-		if(self.isActive) {
-		$("#table-chat-textArea").append(msgText);
-		$("#table-chat-textArea").scrollTop($('#table-chat-textArea')[0].scrollHeight);
-		}
-		if(!refresh) {
-			self.chatCache.push(msgText);
-		}
-	};
+
+// Disable access to game chat 
+//	this.refreshChat = function()
+//	{
+//		$("#table-chat-textArea").textinput();
+//		$("#table-chat-textArea").css( {
+//				'top' : parseInt(myHeight * 80 / 100) + 'px',
+//				'left' : parseInt(myWidth * 0.3 / 100) + 'px',
+//				'height' : parseInt(myHeight * 15 / 100) + 'px',
+//				'width' : parseInt(myWidth * 33 / 100) + 'px',
+//				'font-size' : parseInt(myHeight * 2.1 / 100)
+//		} );
+//		
+//		if(self.chatCache.length > 0) {
+//			for (var i = 0; i < self.chatCache.length; i++) {
+//				var refresh = true;
+//				self.finalReceiveChatMsg(self.chatCache[i], refresh);
+//			}
+//		}
+//	
+//	};
+
+// Disable access to game chat 	
+//	this.receiveChatMessage = function(playerId, msgText)
+//	{	
+//		var playerName = myNetCache.getPlayerData(playerId).playerInfoData.playerName;
+//		var tmpMsg;
+//		if(msgText.match("^/me ")=="/me ") {
+//			msgText = msgText.replace(/\/me /g, "<b>*"+playerName+"</b> ");
+//			tmpMsg = '<span class="table-chat-textArea_text" style="font-style:italic;">'+msgText+'</span></br>';
+//		}
+//		else {
+//			tmpMsg = '<span class="table-chat-textArea_text"><b>'+playerName+':</b> '+msgText+'</span></br>';
+//		}
+//		self.finalReceiveChatMsg(tmpMsg);
+//	};
+//	
+//	this.finalReceiveChatMsg = function(msgText, refresh) 
+//	{
+//		if(self.isActive) {
+//		$("#table-chat-textArea").append(msgText);
+//		$("#table-chat-textArea").scrollTop($('#table-chat-textArea')[0].scrollHeight);
+//		}
+//		if(!refresh) {
+//			self.chatCache.push(msgText);
+//		}
+//	};
 	
 	this.resizeGameTable = function()
 	{

@@ -110,7 +110,7 @@ function GuiImpl()
 	};
 	this.signalNetClientLobbyChatMsg = function(playerId, msg) { myLobbyChat.receiveMessage(playerId, msg); };
 	this.signalNetClientPrivateChatMsg = function(playerId, msg) { myLobbyChat.receivePrivateMessage(playerId, msg); };
-	this.signalNetClientGameChatMsg = function(gameId, playerId, msg) { myGameTable.receiveChatMessage(playerId, msg); };
+//	this.signalNetClientGameChatMsg = function(gameId, playerId, msg) { myGameTable.receiveChatMessage(playerId, msg); }; // // Disable access to game chat
 	this.signalNetClientGlobalNotice = function(msg) { myLobbyChat.receiveGlobalNotice(msg); };
 	this.signalNetClientChatBotNotice = function(playerId, msg) { myLobbyChat.receiveChatBotNotice(playerId, msg); };
 	this.signalNetClientMsgBox = function(msg) { this.showMyMessageBox("GlobalNotice", "Global Notice", msg, "Close"); };
