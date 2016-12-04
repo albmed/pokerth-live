@@ -22,7 +22,7 @@ function NetEventHandler()
 	{
 		self.nickName = nickName;
 		self.password = password;
-		self.websocket = new WebSocket("ws://46.38.236.60:7233/pokerthwebsocket");
+		self.websocket = new WebSocket("ws://149.202.223.116:7236/pthsocketserver");
 		//self.websocket = new WebSocket("ws://46.38.236.60:7232/pokerthwebsocket");
 		self.websocket.binaryType = 'arraybuffer';
 		self.websocket.onopen = function(evt){ self.onOpen(evt); };
@@ -572,9 +572,6 @@ function NetEventHandler()
 			case PokerTH.RemovedFromGameMessage.RemovedFromGameReason.kickedFromGame :
 				myGui.signalNetClientServerMessage("You were kicked from the game.");
 				break;
-			case PokerTH.RemovedFromGameMessage.RemovedFromGameReason.kickedFromGame :
-				myGui.signalNetClientServerMessage("You were kicked from the game.");
-				break;
 			case PokerTH.RemovedFromGameMessage.RemovedFromGameReason.gameClosed :
 				myGui.signalNetClientServerMessage("The game was closed.");
 				break;
@@ -604,9 +601,9 @@ function NetEventHandler()
 			case PokerTH.ChatMessage.ChatType.chatTypeLobby :
 				myGui.signalNetClientLobbyChatMsg(chat.playerId, chat.chatText);
 				break;
-			case PokerTH.ChatMessage.ChatType.chatTypeGame :
-				myGui.signalNetClientGameChatMsg(chat.gameId, chat.playerId, chat.chatText);
-				break;
+//			case PokerTH.ChatMessage.ChatType.chatTypeGame :
+//				myGui.signalNetClientGameChatMsg(chat.gameId, chat.playerId, chat.chatText);
+//				break;
 			case PokerTH.ChatMessage.ChatType.chatTypeBot :
 				myGui.signalNetClientChatBotNotice(chat.chatText);
 				break;
