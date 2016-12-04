@@ -401,7 +401,7 @@ function GameTableImpl()
 				avatarPicture.src = "gfx/pokerth.png";	
 			}
 			else { 
-				avatarPicture.src = 'http://avatar.localhost/web/' + avatarPicture.src;
+				avatarPicture.src = 'http://pokerth.net/avatardav/' + avatarPicture.src;
 			}
 			avatarPicture.myX = parseInt(self.seatsArray[i][0] + myHeight * 0.5 / 100);
 			if (i >= 3 && i <= 7) { 

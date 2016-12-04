@@ -70,7 +70,7 @@ function LobbyGameListImpl()
 			if(myNetCache.hasPlayerData(playerIdArray[i])) {
 				playerNameString = myNetCache.getPlayerData(playerIdArray[i]).playerInfoData.playerName;
 				avatarFileName = myNetCache.getPlayerData(playerIdArray[i]).avatarFileName;
-				if(avatarFileName != "") { avatarFileName = 'http://avatar.localhost/web/'+avatarFileName; }
+				if(avatarFileName != "") { avatarFileName = 'http://pokerth.net/avatardav/'+avatarFileName; }
 			}
 			else {
 				playerNameString = "id"+playerIdArray[i];
@@ -175,7 +175,7 @@ function LobbyGameListImpl()
 		if(myNetCache.hasPlayerData(playerId)) {
 			playerNameString = myNetCache.getPlayerData(playerId).playerInfoData.playerName;
 			avatarFileName = myNetCache.getPlayerData(playerId).avatarFileName;
-			if(avatarFileName != "") { avatarFileName = 'http://avatar.localhost/web/'+avatarFileName; }
+			if(avatarFileName != "") { avatarFileName = 'http://pokerth.net/avatardav/'+avatarFileName; }
 		}
 		else {
 			playerNameString = "id"+playerId;
@@ -204,7 +204,7 @@ function LobbyGameListImpl()
 		var avatarFileName = myNetCache.getPlayerData(playerId).avatarFileName;
 		var avatarString = "";
 			if(avatarFileName != "") { 
-				avatarFileName = 'http://avatar.localhost/web/'+avatarFileName; 
+				avatarFileName = 'http://pokerth.net/avatardav/'+avatarFileName; 
 				avatarString = '<img width="30" height="30" border="0" id="lobbyGameList_playerAvatar" class="ui-li-thumb" src="'+avatarFileName+'">';
 			}				
 		$('#lobbyGameList_playerInGameList_playerId'+playerId).html(avatarString+playerName);
